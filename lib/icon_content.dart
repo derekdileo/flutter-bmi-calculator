@@ -6,7 +6,7 @@ const labelTextStyle = TextStyle(
 );
 
 class IconContent extends StatelessWidget {
-  final Widget icon;
+  final IconData icon;
   final String label;
 
   IconContent(this.icon, this.label);
@@ -16,7 +16,10 @@ class IconContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        icon,
+        Icon(
+          icon,
+          size: 80.0,
+        ),
         SizedBox(
           height: 15.0,
         ),
