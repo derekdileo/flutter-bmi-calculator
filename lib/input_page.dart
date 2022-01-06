@@ -22,24 +22,23 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
 
-  void updateColor(Gender gender) {
+  void updateColor(Gender selectedGender) {
     // male card pressed
-    if (gender == Gender.male) {
-      if (maleCardColor == inactiveCardColor) {
-        maleCardColor = activeCardColor;
-        femaleCardColor = inactiveCardColor;
-      } else {
-        maleCardColor = inactiveCardColor;
-      }
-    } // female card pressed
-    if (gender == Gender.female) {
-      if (femaleCardColor == inactiveCardColor) {
-        femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor;
-      } else {
-        femaleCardColor = inactiveCardColor;
-      }
-    }
+    print('updateColor called!');
+    (selectedGender == Gender.male)
+        ? {
+            maleCardColor = inactiveCardColor,
+            femaleCardColor = activeCardColor,
+            print('selectedGender == male')
+          }
+        : maleCardColor = activeCardColor;
+    (selectedGender == Gender.female)
+        ? {
+            femaleCardColor = inactiveCardColor,
+            maleCardColor = activeCardColor,
+            print('selectedGender == female')
+          }
+        : femaleCardColor = activeCardColor;
   }
 
   @override

@@ -18,8 +18,8 @@ class BMICalculator extends StatelessWidget {
           elevation: 2,
         ),
         scaffoldBackgroundColor: Color(0xFF0A0D22),
-        primaryColor: Color(0XFF0A0D22),
-        primaryColorDark: Colors.purple.shade900,
+        // primaryColor: Color(0XFF0A0D22),
+        // primaryColorDark: Colors.purple.shade900,
         textTheme: const TextTheme(
           bodyText2: TextStyle(
             fontSize: 20,
