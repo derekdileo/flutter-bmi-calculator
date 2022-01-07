@@ -1,10 +1,12 @@
+import 'package:bmi_calculator_flutter/screens/results_calculator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'reusable_card_2.dart';
-import 'constants.dart';
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../components/reusable_card_2.dart';
+import '../constants.dart';
 import 'results_page.dart';
+import 'results_calculator.dart';
 
 enum Gender {
   male,
@@ -79,7 +81,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'HEIGHT',
                     style: kLabelTextStyle,
                   ),
@@ -230,14 +232,24 @@ class _InputPageState extends State<InputPage> {
                   width: double.infinity,
                   height: kBottomContainerHeight,
                   child: TextButton(
-                    child: Text(
+                    child: const Text(
                       'CALCULATE',
                       style: kFooterTextStyle,
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '/results_page');
+                      Result result =
+                          Result(selectedGender, height, weight, age);
+
+                      //Navigator.pushNamed(builder: context, '/results_page');
                       // If routes not programmed, use the following
-                      //Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResultsPage(
+                                    bmiResult: result.calculateBMIString(),
+                                    resultText: result.getResult(),
+                                    interpretation: result.getInterpretation(),
+                                  )));
                     },
                   ),
                 ),

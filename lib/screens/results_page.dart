@@ -1,16 +1,28 @@
-import 'package:bmi_calculator_flutter/reusable_card_2.dart';
+import 'package:bmi_calculator_flutter/components/reusable_card_2.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 import 'input_page.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({Key? key}) : super(key: key);
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  ResultsPage(
+      {Key? key,
+      required this.bmiResult,
+      required this.resultText,
+      required this.interpretation})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ResultsPageState();
   }
 }
+
+// You need to get rid of (or refactor) the reusable cards.
+// They do not agree with the passing of results!
 
 class ResultsPageState extends StatefulWidget {
   const ResultsPageState({Key? key}) : super(key: key);
@@ -75,7 +87,7 @@ class _ResultsPageStateState extends State<ResultsPageState> {
                             style: kResultTextStyle,
                           ),
                           Text(
-                            '18.3',
+                            'bmiResult',
                             style: kBMITextStyle,
                           ),
                           Text(
@@ -99,13 +111,6 @@ class _ResultsPageStateState extends State<ResultsPageState> {
               ],
             ),
           ),
-          // Filler Space
-          // Expanded(
-          //   flex: 1,
-          //   child: Row(
-          //     children: [],
-          //   ),
-          // ),
           // Footer
           Container(
             color: kBottomMenuColor,
@@ -121,7 +126,7 @@ class _ResultsPageStateState extends State<ResultsPageState> {
                   style: kFooterTextStyle,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/input_page');
+                  Navigator.pop(context);
                   // If routes not named, use the following
                   //Navigator.push(context, MaterialPageRoute(builder: (context) => InputPage()));
                 },
