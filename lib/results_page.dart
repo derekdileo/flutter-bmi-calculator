@@ -3,24 +3,34 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'input_page.dart';
 
-class Brain extends StatelessWidget {
-  const Brain({Key? key}) : super(key: key);
+class ResultsPage extends StatelessWidget {
+  const ResultsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BrainState();
+    return ResultsPageState();
   }
 }
 
-class BrainState extends StatefulWidget {
-  const BrainState({Key? key}) : super(key: key);
+class ResultsPageState extends StatefulWidget {
+  const ResultsPageState({Key? key}) : super(key: key);
 
   @override
-  _BrainStateState createState() => _BrainStateState();
+  _ResultsPageStateState createState() => _ResultsPageStateState();
 }
 
-class _BrainStateState extends State<BrainState> {
+class _ResultsPageStateState extends State<ResultsPageState> {
   double bodyMassIndex = 0;
+
+  double calculateMetricBMI(double cm, double kg) {
+    double meters = cm / 100;
+    return kg / (meters * meters);
+  }
+
+  double calculateImperialBMI(double inches, double lbs) {
+    double impConstant = 703;
+    return impConstant * lbs / (inches * inches);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,19 +74,26 @@ class _BrainStateState extends State<BrainState> {
               children: [],
             ),
           ),
+          // Footer
           Container(
             color: kBottomMenuColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: kBottomContainerHeight,
-            child: TextButton(
-              child: Text(
-                'Return to Main',
-                style: kFooterTextStyle,
+            child: SizedBox(
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: TextButton(
+                child: Text(
+                  'RE-CALCULATE',
+                  style: kFooterTextStyle,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/input_page');
+                  // If routes not named, use the following
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => InputPage()));
+                },
               ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
             ),
           ),
         ],
