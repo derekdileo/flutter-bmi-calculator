@@ -22,6 +22,8 @@ class ResultsPageState extends StatefulWidget {
 class _ResultsPageStateState extends State<ResultsPageState> {
   double bodyMassIndex = 0;
 
+  String result = 'Results go here';
+
   double calculateMetricBMI(double cm, double kg) {
     double meters = cm / 100;
     return kg / (meters * meters);
@@ -39,41 +41,71 @@ class _ResultsPageStateState extends State<ResultsPageState> {
         title: Text('BMI CALCULATOR'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          // Filler Space
-          Expanded(
-            flex: 1,
-            child: Row(
-              children: [],
-            ),
-          ),
           // BMI
           Expanded(
             flex: 2,
-            child: ReusableCard2(
-                cardChild: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'BODY MASS INDEX',
-                      style: kLabelTextStyle,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      child: Text(
+                        'Your Result',
+                        style: kNumberTextStyle,
+                      ),
                     ),
-                    Text(
-                      bodyMassIndex.toString(),
-                      style: kNumberTextStyle,
-                    ),
-                  ],
+                  ),
                 ),
-                colour: kActiveCardColor),
-          ),
-          // Filler Space
-          Expanded(
-            flex: 1,
-            child: Row(
-              children: [],
+                Expanded(
+                  flex: 5,
+                  child: Container(
+                    child: ReusableCard2(
+                      colour: kActiveCardColor,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'NORMAL',
+                            style: kResultTextStyle,
+                          ),
+                          Text(
+                            '18.3',
+                            style: kBMITextStyle,
+                          ),
+                          Text(
+                            'Your BMI result is quite low, you should eat more!',
+                            textAlign: TextAlign.center,
+                            style: kBodyTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                // Text(
+                //   'BODY MASS INDEX',
+                //   style: kLabelTextStyle,
+                // ),
+                // Text(
+                //   bodyMassIndex.toString(),
+                //   style: kTitleTextStyle,
+                // ),
+              ],
             ),
           ),
+          // Filler Space
+          // Expanded(
+          //   flex: 1,
+          //   child: Row(
+          //     children: [],
+          //   ),
+          // ),
           // Footer
           Container(
             color: kBottomMenuColor,
