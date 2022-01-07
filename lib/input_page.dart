@@ -4,6 +4,7 @@ import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'reusable_card_2.dart';
 import 'constants.dart';
+import 'brain.dart';
 
 enum Gender {
   male,
@@ -222,6 +223,24 @@ class _InputPageState extends State<InputPage> {
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: kBottomContainerHeight,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextButton(
+                  child: Text(
+                    'Calculate BMI',
+                    style: kFooterTextStyle,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Brain()),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ],
       ),

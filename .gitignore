@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+bmi-formula.png
 
 # IntelliJ related
 *.iml
