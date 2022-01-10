@@ -22,8 +22,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   // selectedGender cannot be null, so use initialize enum.
   Gender selectedGender = Gender.initial;
-  int height = 180;
-  int weight = 185;
+  int height = 185;
+  int weight = 84;
   int age = 34;
 
   @override
@@ -139,7 +139,7 @@ class _InputPageState extends State<InputPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'WEIGHT',
+                        'WEIGHT (kg)',
                         style: kLabelTextStyle,
                       ),
                       Text(
