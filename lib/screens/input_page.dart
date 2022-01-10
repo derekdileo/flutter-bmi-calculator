@@ -41,35 +41,75 @@ class _InputPageState extends State<InputPage> {
               children: [
                 // Male Card
                 Expanded(
-                  child: ReusableCard(
-                    onPress: () {
+                  child: GestureDetector(
+                    onTap: () {
                       setState(() {
                         selectedGender = Gender.male;
-                        print('male selected!');
+                        print('male selected');
                       });
                     },
-                    colour: selectedGender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    cardChild: IconContent(FontAwesomeIcons.mars, 'MALE'),
+                    child: Container(
+                      child: IconContent(FontAwesomeIcons.mars, 'MALE'),
+                      margin: EdgeInsets.all(15.0),
+                      decoration: BoxDecoration(
+                        color: selectedGender == Gender.male
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
                 ),
+                // Expanded(
+                //   child: ReusableCard(
+                //     onPress: () {
+                //       setState(() {
+                //         selectedGender = Gender.male;
+                //         print('male selected!');
+                //       });
+                //     },
+                //     colour: selectedGender == Gender.male
+                //         ? kActiveCardColor
+                //         : kInactiveCardColor,
+                //     cardChild: IconContent(FontAwesomeIcons.mars, 'MALE'),
+                //   ),
+                // ),
 
                 // Female Card
                 Expanded(
-                  child: ReusableCard(
-                    onPress: () {
+                  child: GestureDetector(
+                    onTap: () {
                       setState(() {
-                        selectedGender == Gender.female;
-                        print('female selected!');
+                        selectedGender = Gender.female;
+                        print('female selected');
                       });
                     },
-                    colour: selectedGender == Gender.female
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    cardChild: IconContent(FontAwesomeIcons.venus, 'FEMALE'),
+                    child: Container(
+                      child: IconContent(FontAwesomeIcons.venus, 'FEMALE'),
+                      margin: EdgeInsets.all(15.0),
+                      decoration: BoxDecoration(
+                        color: selectedGender == Gender.female
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
                   ),
                 ),
+                // Expanded(
+                //   child: ReusableCard(
+                //     onPress: () {
+                //       setState(() {
+                //         selectedGender == Gender.female;
+                //         print('female selected!');
+                //       });
+                //     },
+                //     colour: selectedGender == Gender.female
+                //         ? kActiveCardColor
+                //         : kInactiveCardColor,
+                //     cardChild: IconContent(FontAwesomeIcons.venus, 'FEMALE'),
+                //   ),
+                // ),
               ],
             ),
           ),
