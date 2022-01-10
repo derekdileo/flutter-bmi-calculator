@@ -10,33 +10,35 @@ class Result {
   final int weight;
   final int age;
 
+  double _bmi = 0;
+
   String calculateBMIString() {
-    double bmi = weight / pow(height / 100, 2);
-    return bmi.toStringAsFixed(1);
+    _bmi = weight / pow(height / 100, 2);
+    return _bmi.toStringAsFixed(1);
   }
 
   double calculateBMI() {
-    double bmi = weight / pow(height / 100, 2);
-    return bmi;
+    _bmi = weight / pow(height / 100, 2);
+    return _bmi;
   }
 
   double calculateMetricBMI(double cm, double kg) {
     // Metric BMI = [ weight / (m^2) ]
-    double bmi = kg / pow(cm / 100, 2);
-    return bmi.roundToDouble();
+    _bmi = kg / pow(cm / 100, 2);
+    return _bmi.roundToDouble();
   }
 
   double calculateImperialBMI(double inches, double lbs) {
-    // Imperial BMI = [ (703*weight) / (inches^2) ]
+    // Imperial BMI = [ (703 * weight) / (inches^2) ]
     double impConstant = 703;
     return impConstant * lbs / (inches * inches);
   }
 
   String getResult() {
-    double bmi = calculateBMI();
-    if (bmi >= 25) {
+    _bmi = calculateBMI();
+    if (_bmi >= 25) {
       return 'Overweight';
-    } else if (bmi > 18.5) {
+    } else if (_bmi > 18.5) {
       return 'Normal';
     } else {
       return 'Underweight';
@@ -44,10 +46,10 @@ class Result {
   }
 
   String getInterpretation() {
-    double bmi = calculateBMI();
-    if (bmi >= 25) {
+    _bmi = calculateBMI();
+    if (_bmi >= 25) {
       return 'You have a higher than normal body weight. Try to exercise more.';
-    } else if (bmi > 18.5) {
+    } else if (_bmi > 18.5) {
       return 'You have a normal body weight. Good job!';
     } else {
       return 'You have a lower than normal body weight. You can eat a bit more.';
