@@ -34,11 +34,11 @@ class ResultsPage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 15.0),
                     child: Text(
                       'Your Result',
-                      // resultText,
                       style: kNumberTextStyle,
                     ),
                   ),
                 ),
+                //resultText, bmiResult, interpretation
                 Expanded(
                   flex: 5,
                   child: Container(
@@ -46,7 +46,7 @@ class ResultsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        // (Result) Normal
+                        //resultText
                         Text(
                           resultText.toUpperCase(),
                           style: kResultTextStyle,
